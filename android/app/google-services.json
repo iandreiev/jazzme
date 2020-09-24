@@ -1,0 +1,64 @@
+{
+  "project_info": {
+    "project_number": "889991702258",
+    "firebase_url": "https://jazzme-6a86c.firebaseio.com",
+    "project_id": "jazzme-6a86c",
+    "storage_bucket": "jazzme-6a86c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889991702258:android:d7efa5379d4aed9c45d26b",
+        "android_client_info": {
+          "package_name": "org.jazzme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889991702258-30nabb8b38n78msk4qm6k69ii412e1nv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.jazzme",
+            "certificate_hash": "2870f83e8f931bcbc5baea7514933bcb159e0e0f"
+          }
+        },
+        {
+          "client_id": "889991702258-2ld2j9ug2r74tgmioouu89rbjc3ojsoj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.jazzme",
+            "certificate_hash": "f0a78279261eee642645ca6cdd39223df41e9fe9"
+          }
+        },
+        {
+          "client_id": "889991702258-4l3220r65d5g0be13umdq67jnq0tpr08.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.jazzme",
+            "certificate_hash": "e09921ccdcbea0865d4b3e88ee39c7421e7cd803"
+          }
+        },
+        {
+          "client_id": "889991702258-3hs2l4igkk8g35u7fbgb4kke9dslshjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu3oiHdOmaMzpQxCJpPsuvjmhpw2fS9KY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889991702258-3hs2l4igkk8g35u7fbgb4kke9dslshjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
