@@ -1,9 +1,11 @@
 import 'Models/post.dart';
+// import 'Models/transaction.dart';
 import 'dart:convert';
 import 'package:http/http.dart';
 
 class HttpService {
-  // final String postsUrl = "http://340305-ck48391.tmweb.ru/api/v2/posts/web";
+  final String transactURL =
+      "http://340305-ck48391.tmweb.ru/api/v2/tr/history/web";
   final String jPostsUrl = "https://jsonplaceholder.typicode.com/posts";
 
   Future<void> deletePost(int id) async {
@@ -13,6 +15,10 @@ class HttpService {
       print("Deleted");
     }
   }
+
+  // Future<List<Transaction>> getTransaction() async {
+  //   Response res = await get(transactURL);
+  // }
 
   Future<List<Post>> getPosts() async {
     Response res = await get(jPostsUrl);

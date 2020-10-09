@@ -120,25 +120,21 @@ class _AuthPageState extends State<AuthPage> {
                     width: 24,
                   ),
                   JazzBTN(
-                    title: "Регистрация",
+                    title: "Авторизация",
                     fillColor: 0xFFFFFFFF,
                     splashColor: 0xFFF1F1F1,
                     textColor: 0xFF46C63A,
                     onPressed: () {
-                      // signInWithGoogle().then((result) {
-                      //   if (result != null) {
-                      //     Navigator.of(context).push(MaterialPageRoute(
-                      //       builder: (context) {
-                      //         return HomePage();
-                      //       },
-                      //     ));
-                      //   }
-                      // });
-                      Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new LoginPage()),
-                      );
+                      signInWithGoogle().then((result) {
+                        if (result != null) {
+                          // Сюда я думал бахнуть запрос с результатом, возвращаемым файрбейсом
+
+                          // А также, сохранить в локальную память
+
+                          // И перебросить чувака на главную
+
+                        }
+                      });
                     },
                   ),
                 ],

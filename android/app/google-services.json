@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "889991702258-veu1f3u40un1v9ms6k2lr2oapisabj6q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.jazzme",
+            "certificate_hash": "5a2f7b02af539e7c98e25bfdee8805cc5020363e"
+          }
+        },
+        {
           "client_id": "889991702258-30nabb8b38n78msk4qm6k69ii412e1nv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

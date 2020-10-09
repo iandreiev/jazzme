@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jazzme/bills.dart';
 import 'package:jazzme/jazz_me_icons_icons.dart';
 import 'package:jazzme/topup.dart';
+import 'package:jazzme/transactions.dart';
 import 'package:jazzme/transfer.dart';
 import 'package:jazzme/withdraw.dart';
 import 'UI/appbar.dart';
@@ -25,7 +27,7 @@ class _WalletPageState extends State<WalletPage> {
         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiMTIiLCJlbWFpbCI6ImFuZHJ2LmRldkBnbWFpbC5jb20iLCJtbmVtb25pYyI6Imtub2NrIGZpbmdlciBhdGhsZXRlIHNlbnNlIHB1cGlsIHRyYXNoIGJpcmQgZGVmeSBncml0IHNtaWxlIHNoYWRvdyByZWNpcGUiLCJ1c2VybmFtZSI6ImFuZHJleWV2IiwiYWRkcmVzcyI6Ik14YjJkYmQyODQ5NWJlYTVlYThjNTllNGIyODJlN2IzYjkxMjVlZGY5ZCIsImRlc2NyaXB0aW9uIjoiV2ViRGV2In0.3zrVKHbQqkuiL0eosDyRHrw-N5LZShY92x13Al2xWl0";
 
     var baseURL = "http://340305-ck48391.tmweb.ru/api/v2/";
-    var trHistory = "tr/history/web";
+    var trHistory = "tr/history";
 
     var response = await http.get(Uri.encodeFull(baseURL + trHistory),
         headers: {
@@ -36,8 +38,7 @@ class _WalletPageState extends State<WalletPage> {
     print(response.body);
 
     this.setState(() {
-      Map<String, dynamic> map = json.decode(response.body);
-      List<dynamic> data = map["response"];
+      data = json.decode(response.body);
 
       print(data[0]["sender"]);
     });
@@ -117,39 +118,57 @@ class _WalletPageState extends State<WalletPage> {
                   )
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 200,
-                      child: new ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          itemCount: data == null ? 0 : data.length,
-                          shrinkWrap: true,
-                          itemBuilder: (BuildContext context, int index) {
-                            return new Container(
-                                constraints: BoxConstraints.expand(height: 400),
-                                child: new Column(
-                                  children: data[index]["sender"] == sender
-                                      ? [
-                                          Text(data[index]["sender"],
-                                              style: TextStyle(
-                                                  color: Color(0xFF696969),
-                                                  fontSize: 14))
-                                        ]
-                                      : [
-                                          Text(data[index]["sender"],
-                                              style: TextStyle(
-                                                  color: Colors.red,
-                                                  fontSize: 14))
-                                        ],
-                                ));
-                          }),
-                    ),
-                  )
-                ],
-              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(14.0, 14.0, 14.0, 0),
+                child: Column(
+                  children: <Widget>[
+                    ListView(
+                      shrinkWrap: true,
+                      children: <Widget>[
+                        ListTile(
+                            leading: Icon(Icons.timeline),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) =>
+                                        new TransactionsPage()),
+                              );
+                            },
+                            title: Text("Transaction history",
+                                style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: 18.0,
+                                    fontFamily: "TTCommons",
+                                    fontWeight: FontWeight.w600))),
+                        ListTile(
+                            leading: Icon(Icons.payment),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (context) => new UserBills()),
+                              );
+                            },
+                            title: Text("User bills",
+                                style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: 18.0,
+                                    fontFamily: "TTCommons",
+                                    fontWeight: FontWeight.w600))),
+                        ListTile(
+                            leading: Icon(Icons.store),
+                            title: Text("Store",
+                                style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: 18.0,
+                                    fontFamily: "TTCommons",
+                                    fontWeight: FontWeight.w600))),
+                      ],
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ));

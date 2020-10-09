@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jazzme/jazz_me_icons_icons.dart';
+import 'package:jazzme/user.dart';
 import '../wallet.dart';
 import '../home.dart';
 import '../qrscanner.dart';
+import '../users.dart';
 
 class JazzBar extends StatelessWidget implements PreferredSizeWidget {
   final double _preferredHeight = 100.0;
@@ -28,6 +30,15 @@ class JazzBar extends StatelessWidget implements PreferredSizeWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
+            new IconButton(
+              icon: new Icon(Icons.group),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(builder: (context) => new UsersPage()),
+                );
+              },
+            ),
             new IconButton(
               icon: new Icon(JazzMeIcons.whatshot),
               onPressed: () {
@@ -56,10 +67,19 @@ class JazzBar extends StatelessWidget implements PreferredSizeWidget {
                 );
               },
             ),
-            new CircleAvatar(
-                backgroundColor: Colors.purple,
-                child:
-                    Text("IA", style: TextStyle(fontWeight: FontWeight.w600)))
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => new UserProfile()),
+                );
+              },
+              child: CircleAvatar(
+                  backgroundColor: Colors.purple,
+                  child: Text("IA",
+                      style: TextStyle(fontWeight: FontWeight.w600))),
+            )
           ],
         ),
       ]),
