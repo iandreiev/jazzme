@@ -1,0 +1,7 @@
+Models - model calling function from Getters and save data
+Getters -getter collect data from API
+UI - user interface components. Divides to master and slave components
+UI/Master - Master components, appbars, slivers, form controllers - it is.
+UI/Slave - Secondary components which calls locally in components
+Pages - Pages 
+main.dart - app caller

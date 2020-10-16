@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'auth.dart';
-import 'dart:async';
 
-// import 'UI/appbar.dart';
-void main() {
-  runApp(MaterialApp(
-    home: Home(),
-  ));
-}
+import 'Pages/HomePage.dart';
 
-class Home extends StatefulWidget {
+void main() => runApp(MaterialApp(
+      home: AuthPage(),
+      debugShowCheckedModeBanner: false,
+    ));
+
+class AuthPage extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _AuthPageState createState() => _AuthPageState();
 }
 
-class _HomeState extends State<Home> {
+class _AuthPageState extends State<AuthPage> {
   @override
   void initState() {
     super.initState();
@@ -22,23 +20,21 @@ class _HomeState extends State<Home> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => AuthPage(),
+          builder: (context) => HomePage(),
         ),
       );
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Image.asset(
-          'assets/jazzme-logo.png',
-          height: 100,
-          width: 100,
-          fit: BoxFit.contain,
+  Widget build(BuildContext context) => Scaffold(
+        body: Center(
+          child: Image.asset(
+            'assets/jazzme-logo.png',
+            height: 100,
+            width: 100,
+            fit: BoxFit.contain,
+          ),
         ),
-      ),
-    );
-  }
+      );
 }
